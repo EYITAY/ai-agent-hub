@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Agent Demos — Build Your Own AI Agent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#F7F5FB; --surface:#FFFFFF; --border:#DCD3EE; --text:#201A2E; --text-dim:#665C80;
+    --accent:#6F4FC2; --accent-soft:#EAE1FA;
+    --mono:'JetBrains Mono', ui-monospace, monospace; --sans:'Inter', -apple-system, sans-serif; --radius:8px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg:#140F1E; --surface:#201A2E; --border:#372D4B; --text:#EFEAF8; --text-dim:#A79BC4;
+      --accent:#A98AE8; --accent-soft:#2A2140;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font-family:var(--sans); line-height:1.55;
+    padding-top: env(safe-area-inset-top,0px); padding-bottom: env(safe-area-inset-bottom,0px); }
+  .wrap { max-width: 960px; margin:0 auto; padding: 56px 24px 90px; }
+  .eyebrow { font-family: var(--mono); font-size: 12px; color: var(--accent); letter-spacing: 0.06em; text-transform: uppercase; }
+  h1 { font-size: 32px; font-weight: 800; margin: 8px 0 10px; letter-spacing: -0.01em; }
+  .lede { color: var(--text-dim); font-size: 15px; max-width: 620px; margin-bottom: 40px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px;
+    text-decoration: none; color: var(--text); display: block; transition: border-color 0.15s; }
+  .card:hover { border-color: var(--accent); }
+  .card .emoji { font-size: 26px; }
+  .card h3 { font-family: var(--mono); font-size: 14px; margin: 12px 0 8px; }
+  .card p { color: var(--text-dim); font-size: 13px; margin: 0; }
+  .card .num { display:inline-block; font-family: var(--mono); font-size: 10.5px; color: var(--accent);
+    background: var(--accent-soft); padding: 2px 7px; border-radius: 4px; margin-bottom: 10px; }
+  footer { margin-top: 50px; font-size: 12px; color: var(--text-dim); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Build Your Own AI Agent — Workshop Demos</div>
+  <h1>Seven agents, seven "wow" moments</h1>
+  <p class="lede">A set of small, working agent demos built to explore what makes a great hands-on
+    workshop project -- each one self-contained, each one runnable in minutes.</p>
+
+  <div class="grid">
+    <a class="card" href="#" data-slug="meeting-to-action">
+      <span class="num">01</span>
+      <div class="emoji">📋</div>
+      <h3>Meeting-to-Action Agent</h3>
+      <p>Messy meeting notes in. Decisions, owned tasks, and a follow-up email out.</p>
+    </a>
+    <a class="card" href="#" data-slug="explain-my-data">
+      <span class="num">02</span>
+      <div class="emoji">📊</div>
+      <h3>Explain My Data Agent</h3>
+      <p>Paste a CSV. Get a plain-English summary and an auto-generated chart.</p>
+    </a>
+    <a class="card" href="#" data-slug="research-digest">
+      <span class="num">03</span>
+      <div class="emoji">🗞️</div>
+      <h3>Research Digest Agent</h3>
+      <p>Give it a topic. Get a re-runnable, brief-style report.</p>
+    </a>
+    <a class="card" href="#" data-slug="event-ops-agent">
+      <span class="num">04</span>
+      <div class="emoji">🎪</div>
+      <h3>Event Ops Agent</h3>
+      <p>Rough event details in. A webpage, social posts, invite email, and run-of-show out.</p>
+    </a>
+    <a class="card" href="#" data-slug="portfolio-builder">
+      <span class="num">05</span>
+      <div class="emoji">🧑‍💻</div>
+      <h3>Portfolio Builder Agent</h3>
+      <p>Your background in. A complete, deployable personal portfolio site out.</p>
+    </a>
+    <a class="card" href="#" data-slug="accessibility-fixer">
+      <span class="num">06</span>
+      <div class="emoji">♿</div>
+      <h3>Accessibility Fixer Agent</h3>
+      <p>Paste HTML. Get a specific audit and an auto-fixed version, side by side.</p>
+    </a>
+    <a class="card" href="#" data-slug="sketch-to-app">
+      <span class="num">07</span>
+      <div class="emoji">✏️</div>
+      <h3>Sketch-to-App Agent</h3>
+      <p>Photo of a hand-drawn wireframe in. A working, interactive app out.</p>
+    </a>
+  </div>
+
+  <footer>Each agent is a fully self-contained, single-file HTML app -- no build step, no dependencies beyond two CDN-hosted libraries.</footer>
+</div>
+
+<script>
+  // ============================================================
+  // EDIT THIS: once each agent is deployed to its own Vercel URL,
+  // fill in the real links here. Left as '#' until then.
+  // ============================================================
+  const LINKS = {
+    'meeting-to-action': '#',
+    'explain-my-data': '#',
+    'research-digest': '#',
+    'event-ops-agent': '#',
+    'portfolio-builder': '#',
+    'accessibility-fixer': '#',
+    'sketch-to-app': '#',
+  };
+  document.querySelectorAll('[data-slug]').forEach(a => {
+    const slug = a.getAttribute('data-slug');
+    if (LINKS[slug] && LINKS[slug] !== '#') {
+      a.href = LINKS[slug];
+      a.target = '_blank';
+      a.rel = 'noopener';
+    }
+  });
+</script>
+</body>
+</html>
